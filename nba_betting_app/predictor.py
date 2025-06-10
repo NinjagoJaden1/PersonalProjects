@@ -46,7 +46,11 @@ def predict(home_team, away_team, ratings, k=0.1):
 
 def main():
     parser = argparse.ArgumentParser(description="NBA Betting Predictor")
+
+    parser.add_argument('--data', default='data/sample_games.csv',
+=======
     parser.add_argument('--data', default='nba_betting_app/data/sample_games.csv',
+
                         help='Path to games CSV data')
     parser.add_argument('home_team', help='Home team name')
     parser.add_argument('away_team', help='Away team name')
