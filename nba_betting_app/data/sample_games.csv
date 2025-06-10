@@ -1,4 +1,16 @@
 date,home_team,away_team,home_points,away_points
+
+2024-11-01,Nuggets,Lakers,110,102
+2024-11-01,Knicks,Celtics,98,105
+2024-11-02,Warriors,Suns,120,118
+2024-11-02,Heat,Bucks,99,103
+2024-11-03,Nets,Cavaliers,112,108
+2024-11-03,Bulls,Raptors,104,101
+2024-11-04,Celtics,76ers,115,109
+2024-11-04,Clippers,Mavericks,111,107
+2024-11-05,Lakers,Warriors,109,115
+2024-11-05,Suns,Nuggets,117,119
+=======
 2022-10-01,Lakers,Bulls,110,100
 2022-10-02,Celtics,Heat,95,102
 2022-10-03,Bulls,Celtics,98,97
@@ -21,4 +33,5 @@ date,home_team,away_team,home_points,away_points
 2022-10-19,Heat,Lakers,106,114
 2022-10-20,Celtics,Bulls,104,99
 =======
+
 

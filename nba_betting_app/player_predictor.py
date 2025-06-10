@@ -56,7 +56,11 @@ def main():
 
     parser.add_argument('--data', default='data/sample_player_stats.csv',
 =======
+
+    parser.add_argument('--data', default='data/sample_player_stats.csv',
+=======
     parser.add_argument('--data', default='nba_betting_app/data/sample_player_stats.csv',
+
 
                         help='Path to player stats CSV')
     parser.add_argument('player', help='Player name')

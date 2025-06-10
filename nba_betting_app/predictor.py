@@ -49,7 +49,11 @@ def main():
 
     parser.add_argument('--data', default='data/sample_games.csv',
 =======
+
+    parser.add_argument('--data', default='data/sample_games.csv',
+=======
     parser.add_argument('--data', default='nba_betting_app/data/sample_games.csv',
+
 
                         help='Path to games CSV data')
     parser.add_argument('home_team', help='Home team name')
