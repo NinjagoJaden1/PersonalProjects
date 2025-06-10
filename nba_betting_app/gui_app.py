@@ -1,7 +1,8 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
-from predictor import load_games, compute_team_ratings, predict
+from predictor import load_games, compute_team_ratings, predict_with_reasoning
 from player_predictor import load_player_stats, compute_averages, predict_player
+from teams import ALL_TEAMS
 
 GAMES_PATH = 'data/sample_games.csv'
 STATS_PATH = 'data/sample_player_stats.csv'
@@ -10,11 +11,10 @@ STATS_PATH = 'data/sample_player_stats.csv'
 def load_data():
     games = load_games(GAMES_PATH)
     player_stats = load_player_stats(STATS_PATH)
-    team_set = {g['home_team'] for g in games} | {g['away_team'] for g in games}
     player_set = {s['player'] for s in player_stats}
     ratings = compute_team_ratings(games)
     player_avgs = compute_averages(player_stats)
-    return sorted(team_set), sorted(player_set), ratings, player_avgs
+    return sorted(ALL_TEAMS), sorted(player_set), ratings, player_avgs
 
 
 class BettingApp(tk.Tk):
@@ -62,8 +62,8 @@ class BettingApp(tk.Tk):
         if home == away:
             messagebox.showerror('Error', 'Teams must be different')
             return
-        prob = predict(home, away, self.ratings)
-        self.game_result.config(text=f'Probability {home} beats {away}: {prob:.3f}')
+        prob, reason = predict_with_reasoning(home, away, self.ratings)
+        self.game_result.config(text=f"{reason}\nProbability {home} beats {away}: {prob:.3f}")
 
     def predict_player_stats(self):
         player = self.player_var.get()

@@ -1,52 +1,88 @@
+import os
 import requests
 import pandas as pd
 from tqdm import tqdm
-import os
 
-DATA_DIR = 'data'
-OUTPUT_PATH = os.path.join(DATA_DIR, 'sample_games.csv')
+DATA_DIR = "data"
+GAMES_PATH = os.path.join(DATA_DIR, "sample_games.csv")
+STATS_PATH = os.path.join(DATA_DIR, "sample_player_stats.csv")
+GAMES_URL = "https://www.balldontlie.io/api/v1/games"
+STATS_URL = "https://www.balldontlie.io/api/v1/stats"
 
-def fetch_all_games(season=2023):
+
+def fetch_latest_games(season: int = 2023, per_page: int = 10):
+    """Fetch the most recent games for a season."""
+    params = {"seasons[]": season, "per_page": per_page, "page": 1}
+    resp = requests.get(GAMES_URL, params=params)
+    resp.raise_for_status()
     games = []
-    page = 1
-    total_pages = 1  # placeholder
-
-    print(f"Fetching NBA games from season {season}...")
-
-    while page <= total_pages:
-        url = f"https://www.balldontlie.io/api/v1/games?seasons[]={season}&per_page=100&page={page}"
-        response = requests.get(url)
-        if response.status_code != 200:
-            print(f"❌ Failed on page {page}")
-            break
-
-        data = response.json()
-        total_pages = data['meta']['total_pages']
-        for game in data['data']:
-            if game['home_team_score'] == 0 or game['visitor_team_score'] == 0:
-                continue  # skip games not yet played
-
-            games.append({
-                'date': game['date'][:10],
-                'home_team': game['home_team']['full_name'],
-                'away_team': game['visitor_team']['full_name'],
-                'home_points': game['home_team_score'],
-                'away_points': game['visitor_team_score']
-            })
-
-        page += 1
-
+    for g in resp.json().get("data", []):
+        if g["home_team_score"] == 0 or g["visitor_team_score"] == 0:
+            continue
+        games.append({
+            "id": g["id"],
+            "date": g["date"][:10],
+            "home_team": g["home_team"]["full_name"],
+            "away_team": g["visitor_team"]["full_name"],
+            "home_points": g["home_team_score"],
+            "away_points": g["visitor_team_score"],
+        })
     return games
 
-def save_games_to_csv(games):
+
+def fetch_stats_for_game(game_id: int):
+    """Fetch all player stats for a single game."""
+    params = {"game_ids[]": game_id, "per_page": 100, "page": 1}
+    page = 1
+    total_pages = 1
+    stats = []
+    while page <= total_pages:
+        params["page"] = page
+        resp = requests.get(STATS_URL, params=params)
+        resp.raise_for_status()
+        data = resp.json()
+        total_pages = data["meta"]["total_pages"]
+        stats.extend(data["data"])
+        page += 1
+    return stats
+
+
+def collect_player_stats(games):
+    """Collect player stats for a list of game dicts."""
+    all_stats = []
+    for game in tqdm(games, desc="player stats", unit="game"):
+        for stat in fetch_stats_for_game(game["id"]):
+            team = stat["team"]["full_name"]
+            opponent = game["away_team"] if team == game["home_team"] else game["home_team"]
+            all_stats.append({
+                "date": game["date"],
+                "player": stat["player"]["full_name"],
+                "team": team,
+                "opponent": opponent,
+                "points": stat["pts"],
+                "rebounds": stat["reb"],
+                "assists": stat["ast"],
+                "steals": stat["stl"],
+                "fgm": stat["fgm"],
+                "fga": stat["fga"],
+                "ftm": stat["ftm"],
+                "fta": stat["fta"],
+            })
+    return all_stats
+
+
+def save_to_csv(path: str, rows: list):
     os.makedirs(DATA_DIR, exist_ok=True)
-    df = pd.DataFrame(games)
-    df.to_csv(OUTPUT_PATH, index=False)
-    print(f"✅ Saved {len(games)} games to {OUTPUT_PATH}")
+    pd.DataFrame(rows).to_csv(path, index=False)
+    print(f"✅ Saved {len(rows)} rows to {path}")
+
 
 def main():
-    games = fetch_all_games()
-    save_games_to_csv(games)
+    games = fetch_latest_games()
+    stats = collect_player_stats(games)
+    save_to_csv(GAMES_PATH, games)
+    save_to_csv(STATS_PATH, stats)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

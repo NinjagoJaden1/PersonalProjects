@@ -18,7 +18,7 @@ def load_player_stats(path):
                 'fgm': int(row['fgm']),
                 'fga': int(row['fga']),
                 'ftm': int(row['ftm']),
-                'fta': int(row['fta'])
+                'fta': int(row['fta']),
             }
             stats.append(entry)
     return stats
@@ -29,16 +29,15 @@ def compute_averages(stats):
     totals = defaultdict(lambda: defaultdict(int))
     counts = defaultdict(int)
     for s in stats:
-        p = s['player']
-        counts[p] += 1
+        player = s['player']
+        counts[player] += 1
         for k, v in s.items():
             if k != 'player':
-                totals[p][k] += v
+                totals[player][k] += v
     avgs = {}
     for player, sums in totals.items():
         games = counts[player]
         avgs[player] = {k: sums[k] / games for k in sums}
-        # compute percentages
         fg_attempts = sums['fga']
         ft_attempts = sums['fta']
         avgs[player]['fg_pct'] = sums['fgm'] / fg_attempts if fg_attempts else 0
@@ -47,22 +46,13 @@ def compute_averages(stats):
 
 
 def predict_player(player, avgs):
-    """Return the player's average stats as a simple prediction."""
+    """Return a player's average stats as the prediction."""
     return avgs.get(player)
 
 
 def main():
     parser = argparse.ArgumentParser(description="NBA Player Stats Predictor")
-
-    parser.add_argument('--data', default='data/sample_player_stats.csv',
-=======
-
-    parser.add_argument('--data', default='data/sample_player_stats.csv',
-=======
-    parser.add_argument('--data', default='nba_betting_app/data/sample_player_stats.csv',
-
-
-                        help='Path to player stats CSV')
+    parser.add_argument('--data', default='data/sample_player_stats.csv', help='Path to player stats CSV')
     parser.add_argument('player', help='Player name')
     args = parser.parse_args()
 
