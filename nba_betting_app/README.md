@@ -40,6 +40,18 @@ betting use, more sophisticated statistics and much larger datasets would be
 required.
 
 
+## Streamlit Web App
+
+If you prefer a web style interface, launch the Streamlit app:
+
+```
+streamlit run streamlit_app.py
+```
+
+The page lets you pick the home and away team from dropdown menus and tap the
+"🔮 Predict" button. The result appears in a centered card with emoji styling so
+it looks great even on mobile screens inside Visual Studio Code.
+
 ## Interactive App
 
 An additional script, `app.py`, offers a small interactive menu where you can
