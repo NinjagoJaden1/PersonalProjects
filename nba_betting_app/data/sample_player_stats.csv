@@ -1,4 +1,5 @@
 date,player,team,opponent,points,rebounds,assists,steals,fgm,fga,ftm,fta
+
 2024-10-01,Nikola Jokic,Nuggets,Lakers,28,11,9,1,11,18,6,7
 2024-10-02,LeBron James,Lakers,Nuggets,26,8,7,2,10,19,4,5
 2024-10-03,Jayson Tatum,Celtics,Bucks,30,9,4,1,11,21,5,6
@@ -9,3 +10,15 @@ date,player,team,opponent,points,rebounds,assists,steals,fgm,fga,ftm,fta
 2024-10-08,Joel Embiid,Sixers,Heat,30,11,4,1,10,17,10,12
 2024-10-09,Jimmy Butler,Heat,Sixers,27,7,6,3,9,18,9,10
 2024-10-10,Kawhi Leonard,Clippers,Lakers,25,6,5,2,9,17,7,9
+=======
+2022-10-01,LeBron James,Lakers,Bulls,30,8,7,2,12,20,5,7
+2022-10-02,LeBron James,Lakers,Heat,25,9,8,1,10,18,3,4
+2022-10-03,LeBron James,Lakers,Celtics,32,7,9,3,13,22,4,6
+2022-10-04,LeBron James,Lakers,Bulls,28,10,6,2,11,19,6,8
+2022-10-05,LeBron James,Lakers,Heat,35,8,7,1,14,25,7,9
+2022-10-01,Stephen Curry,Warriors,Lakers,27,5,10,2,9,17,6,6
+2022-10-02,Stephen Curry,Warriors,Bulls,24,4,11,1,8,16,5,5
+2022-10-03,Stephen Curry,Warriors,Celtics,30,5,8,3,11,21,7,7
+2022-10-04,Stephen Curry,Warriors,Heat,33,6,9,2,12,20,6,6
+2022-10-05,Stephen Curry,Warriors,Lakers,29,4,12,2,10,19,4,4
+
