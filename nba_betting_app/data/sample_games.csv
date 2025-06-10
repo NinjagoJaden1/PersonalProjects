@@ -1,1 +1,21 @@
-
+id,date,home_team,away_team,home_points,away_points
+1,2023-10-24,Denver Nuggets,Los Angeles Lakers,119,107
+2,2023-10-24,Golden State Warriors,Phoenix Suns,104,108
+3,2023-10-25,Minnesota Timberwolves,Toronto Raptors,97,101
+4,2023-10-25,Boston Celtics,New York Knicks,108,104
+5,2023-10-25,Miami Heat,Detroit Pistons,103,102
+6,2023-10-25,Chicago Bulls,Oklahoma City Thunder,104,124
+7,2023-10-25,San Antonio Spurs,Dallas Mavericks,119,126
+8,2023-10-26,Portland Trail Blazers,LA Clippers,111,123
+9,2023-10-26,Utah Jazz,Sacramento Kings,114,130
+10,2023-10-26,Orlando Magic,Houston Rockets,116,86
+11,2023-10-26,Cleveland Cavaliers,Brooklyn Nets,114,113
+12,2023-10-26,Memphis Grizzlies,New Orleans Pelicans,104,111
+13,2023-10-26,Milwaukee Bucks,Philadelphia 76ers,118,117
+14,2023-10-26,Indiana Pacers,Washington Wizards,143,120
+15,2023-10-26,Atlanta Hawks,Charlotte Hornets,113,116
+16,2023-10-27,Denver Nuggets,Memphis Grizzlies,108,104
+17,2023-10-27,New York Knicks,Atlanta Hawks,126,120
+18,2023-10-27,Houston Rockets,San Antonio Spurs,109,117
+19,2023-10-28,Phoenix Suns,Utah Jazz,126,104
+20,2023-10-28,Golden State Warriors,Sacramento Kings,122,114

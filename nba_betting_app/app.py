@@ -1,6 +1,11 @@
 import argparse
-from predictor import load_games, compute_team_ratings, predict
+from predictor import (
+    load_games,
+    compute_team_ratings,
+    predict_with_reasoning,
+)
 from player_predictor import load_player_stats, compute_averages, predict_player
+from teams import ALL_TEAMS
 
 DEFAULT_GAMES_PATH = 'data/sample_games.csv'
 DEFAULT_STATS_PATH = 'data/sample_player_stats.csv'
@@ -10,7 +15,7 @@ def interactive_mode(games_path, stats_path):
     games = load_games(games_path)
     player_stats = load_player_stats(stats_path)
 
-    teams = sorted({g['home_team'] for g in games} | {g['away_team'] for g in games})
+    teams = sorted(ALL_TEAMS)
     players = sorted({s['player'] for s in player_stats})
 
     print("Select an option:\n1) Predict game outcome\n2) Predict player stats")
@@ -20,7 +25,8 @@ def interactive_mode(games_path, stats_path):
         home = input("Home team: ")
         away = input("Away team: ")
         ratings = compute_team_ratings(games)
-        prob = predict(home, away, ratings)
+        prob, reason = predict_with_reasoning(home, away, ratings)
+        print(reason)
         print(f"Predicted probability {home} beats {away}: {prob:.3f}")
     elif choice == '2':
         print("Available players: " + ", ".join(players))
