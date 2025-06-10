@@ -38,6 +38,14 @@ python update_data.py
 
 This requires an internet connection and may take a few minutes on the first
 run because it fetches the entire current season.
+
+### Refreshing sample data
+
+If you only want a small dataset for demonstration, run `update_games.py`.
+It downloads the ten latest games from the 2023 season using the
+[balldontlie](https://www.balldontlie.io) API and writes them to
+`data/sample_games.csv` and the accompanying player stats to
+`data/sample_player_stats.csv`.
 =======
 
 Additional games can be added to improve the model. Sample player stats are
