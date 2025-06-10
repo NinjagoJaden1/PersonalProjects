@@ -1,6 +1,7 @@
 import math
 import streamlit as st
 from predictor import load_games, compute_team_ratings
+from teams import ALL_TEAMS
 
 DATA_PATH = 'data/sample_games.csv'
 
@@ -13,7 +14,7 @@ def logistic(x, k=0.1):
 # Load data and prepare model
 _games = load_games(DATA_PATH)
 _ratings = compute_team_ratings(_games)
-_teams = sorted({g['home_team'] for g in _games} | {g['away_team'] for g in _games})
+_teams = sorted(ALL_TEAMS)
 
 st.set_page_config(page_title='NBA Predictor', page_icon='🏀')
 st.markdown("<h1 style='text-align:center;'>🏀 NBA Game Predictor</h1>", unsafe_allow_html=True)
@@ -30,12 +31,17 @@ if predict:
         diff = _ratings.get(home_team, 0) - _ratings.get(away_team, 0)
         prob = logistic(diff)
         winner = home_team if prob >= 0.5 else away_team
+        reason = (
+            f"Home rating {_ratings.get(home_team,0):.2f}, "
+            f"Away rating {_ratings.get(away_team,0):.2f}, diff {diff:.2f}"
+        )
         st.markdown(
-    f"<div style='margin-top:20px; padding:20px; text-align:center; "
-    f"background-color:#f2f2f2; border-radius:10px; color:black;'>"
-    f"<h2 style='color:black;'>{winner} 🏆</h2>"
-    f"<p style='color:black;'>Win probability for {home_team}: {prob:.1%}</p>"
-    f"</div>",
-    unsafe_allow_html=True,
-)
+            f"<div style='margin-top:20px; padding:20px; text-align:center; "
+            f"background-color:#f2f2f2; border-radius:10px; color:black;'>"
+            f"<h2 style='color:black;'>{winner} 🏆</h2>"
+            f"<p style='color:black;'>{reason}</p>"
+            f"<p style='color:black;'>Win probability for {home_team}: {prob:.1%}</p>"
+            f"</div>",
+            unsafe_allow_html=True,
+        )
 
