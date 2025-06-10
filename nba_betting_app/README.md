@@ -1,20 +1,20 @@
 # NBA Betting Predictor
 
 This small project demonstrates simple NBA game and player predictions. Sample
-CSV files in the `data` directory contain a few results from the 2023-24
-season. Ratings are based on average point differential and a logistic function
+CSV files in the `data` directory are generated from real 2023-24 season games.
+Ratings are based on average point differential and a logistic function
 converts rating difference to win probability.
 
 ## Refreshing sample data
 
-Run `update_games.py` to download the ten latest games and box scores from the
-[balldontlie](https://www.balldontlie.io) API:
+Run `update_games.py` to download the entire 2023‑24 schedule and all player
+box scores from the [balldontlie](https://www.balldontlie.io) API:
 
 
 ```bash
-python update_games.py
-=======
-following columns:
+- `app.py` – basic text interface (games and player stats)
+- `gui_app.py` – Tkinter window with tabs for games and players
+- `streamlit_app.py` – simple web interface supporting both modes
 
 ```
 date,home_team,away_team,home_points,away_points

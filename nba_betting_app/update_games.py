@@ -10,23 +10,30 @@ GAMES_URL = "https://www.balldontlie.io/api/v1/games"
 STATS_URL = "https://www.balldontlie.io/api/v1/stats"
 
 
-def fetch_latest_games(season: int = 2023, per_page: int = 10):
-    """Fetch the most recent games for a season."""
-    params = {"seasons[]": season, "per_page": per_page, "page": 1}
-    resp = requests.get(GAMES_URL, params=params)
-    resp.raise_for_status()
+def fetch_season_games(season: int = 2023) -> list:
+    """Fetch all completed games for a season."""
+    params = {"seasons[]": season, "per_page": 100, "page": 1}
     games = []
-    for g in resp.json().get("data", []):
-        if g["home_team_score"] == 0 or g["visitor_team_score"] == 0:
-            continue
-        games.append({
-            "id": g["id"],
-            "date": g["date"][:10],
-            "home_team": g["home_team"]["full_name"],
-            "away_team": g["visitor_team"]["full_name"],
-            "home_points": g["home_team_score"],
-            "away_points": g["visitor_team_score"],
-        })
+    page = 1
+    total_pages = 1
+    while page <= total_pages:
+        params["page"] = page
+        resp = requests.get(GAMES_URL, params=params)
+        resp.raise_for_status()
+        data = resp.json()
+        total_pages = data["meta"]["total_pages"]
+        for g in data.get("data", []):
+            if g["home_team_score"] == 0 or g["visitor_team_score"] == 0:
+                continue
+            games.append({
+                "id": g["id"],
+                "date": g["date"][:10],
+                "home_team": g["home_team"]["full_name"],
+                "away_team": g["visitor_team"]["full_name"],
+                "home_points": g["home_team_score"],
+                "away_points": g["visitor_team_score"],
+            })
+        page += 1
     return games
 
 
@@ -78,7 +85,13 @@ def save_to_csv(path: str, rows: list):
 
 
 def main():
-    games = fetch_latest_games()
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Download NBA data for a season")
+    parser.add_argument("--season", type=int, default=2023, help="Season start year, e.g. 2023 for 2023-24")
+    args = parser.parse_args()
+
+    games = fetch_season_games(args.season)
     stats = collect_player_stats(games)
     save_to_csv(GAMES_PATH, games)
     save_to_csv(STATS_PATH, stats)
