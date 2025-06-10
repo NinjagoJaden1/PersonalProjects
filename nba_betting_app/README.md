@@ -14,9 +14,8 @@ following columns:
 date,home_team,away_team,home_points,away_points
 ```
 
-Additional games can be added to improve the model.
-
-Sample player stats are available in `data/sample_player_stats.csv`.
+Additional games can be added to improve the model. Sample player stats are
+available in `data/sample_player_stats.csv`.
 
 ## Usage
 
