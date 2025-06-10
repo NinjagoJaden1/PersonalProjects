@@ -1,0 +1,11 @@
+date,player,team,opponent,points,rebounds,assists,steals,fgm,fga,ftm,fta
+2024-10-01,Nikola Jokic,Nuggets,Lakers,28,11,9,1,11,18,6,7
+2024-10-02,LeBron James,Lakers,Nuggets,26,8,7,2,10,19,4,5
+2024-10-03,Jayson Tatum,Celtics,Bucks,30,9,4,1,11,21,5,6
+2024-10-04,Giannis Antetokounmpo,Bucks,Celtics,31,12,6,2,12,20,7,9
+2024-10-05,Stephen Curry,Warriors,Suns,32,5,8,3,11,22,6,6
+2024-10-06,Kevin Durant,Suns,Warriors,29,7,5,1,10,18,7,8
+2024-10-07,Luka Doncic,Mavericks,Bucks,33,8,10,2,12,23,5,7
+2024-10-08,Joel Embiid,Sixers,Heat,30,11,4,1,10,17,10,12
+2024-10-09,Jimmy Butler,Heat,Sixers,27,7,6,3,9,18,9,10
+2024-10-10,Kawhi Leonard,Clippers,Lakers,25,6,5,2,9,17,7,9
