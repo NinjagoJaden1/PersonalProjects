@@ -31,11 +31,11 @@ if predict:
         prob = logistic(diff)
         winner = home_team if prob >= 0.5 else away_team
         st.markdown(
-            f"<div style='margin-top:20px; padding:20px; text-align:center; "
-            f"background-color:#f2f2f2; border-radius:10px;'>"
-            f"<h2>{winner} 🏆</h2>"
-            f"<p>Win probability for {home_team}: {prob:.1%}</p>"
-            f"</div>",
-            unsafe_allow_html=True,
-        )
+    f"<div style='margin-top:20px; padding:20px; text-align:center; "
+    f"background-color:#f2f2f2; border-radius:10px; color:black;'>"
+    f"<h2 style='color:black;'>{winner} 🏆</h2>"
+    f"<p style='color:black;'>Win probability for {home_team}: {prob:.1%}</p>"
+    f"</div>",
+    unsafe_allow_html=True,
+)
 
