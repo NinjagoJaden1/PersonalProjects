@@ -14,8 +14,17 @@ following columns:
 date,home_team,away_team,home_points,away_points
 ```
 
+
 Additional games can be added to improve the model. Sample player stats are
 available in `data/sample_player_stats.csv`.
+=======
+
+Additional games can be added to improve the model. Sample player stats are
+available in `data/sample_player_stats.csv`.
+=======
+Additional games can be added to improve the model.
+
+
 
 ## Usage
 
@@ -30,6 +39,7 @@ The model is intentionally simple and meant only as an example. For real sports
 betting use, more sophisticated statistics and much larger datasets would be
 required.
 
+
 ## Interactive App
 
 An additional script, `app.py`, offers a small interactive menu where you can
@@ -42,6 +52,8 @@ python app.py
 You will then be prompted to select whether you want to predict a game outcome
 or a player's stats. The data comes from the same sample CSV files mentioned
 above and can be extended with more recent games.
+=======
+
 
 ## Player Stats Usage
 
@@ -53,6 +65,7 @@ python player_predictor.py --data data/sample_player_stats.csv "LeBron James"
 
 The prediction simply mirrors the player's historical averages in the sample data and is **not** meant for real betting use.
 
+
 ## Graphical App
 
 For a simple graphical interface that works in Visual Studio Code, run `gui_app.py`:
@@ -63,4 +76,6 @@ python gui_app.py
 
 This Tkinter-based window lets you choose teams or a player from dropdown menus
 and view either a game win probability or the player's average stats.
+=======
+=======
 
