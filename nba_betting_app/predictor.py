@@ -5,18 +5,21 @@ from collections import defaultdict
 
 
 def load_games(path):
-    """Load games from a CSV file."""
     games = []
     with open(path, newline='') as f:
         reader = csv.DictReader(f)
         for row in reader:
-            game = {
-                'home_team': row['home_team'],
-                'away_team': row['away_team'],
-                'home_points': int(row['home_points']),
-                'away_points': int(row['away_points'])
-            }
-            games.append(game)
+            if row['home_points'] and row['away_points']:
+                try:
+                    games.append({
+                        'date': row['date'],
+                        'home_team': row['home_team'],
+                        'away_team': row['away_team'],
+                        'home_points': int(row['home_points']),
+                        'away_points': int(row['away_points'])
+                    })
+                except ValueError:
+                    print(f"⚠️ Skipping bad row: {row}")
     return games
 
 
@@ -47,11 +50,9 @@ def predict(home_team, away_team, ratings, k=0.1):
 def main():
     parser = argparse.ArgumentParser(description="NBA Betting Predictor")
 
-    parser.add_argument('--data', default='data/sample_games.csv',
-=======
+    parser.add_argument('--data', default='data/sample_games.csv')
 
-    parser.add_argument('--data', default='data/sample_games.csv',
-=======
+
     parser.add_argument('--data', default='nba_betting_app/data/sample_games.csv',
 
 
