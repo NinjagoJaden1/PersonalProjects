@@ -30,7 +30,7 @@ def get_player_stats():
 # === PAGE SETUP ===
 st.set_page_config(page_title='NBA Predictor', page_icon='🏀')
 st.markdown("<h1 style='text-align:center;'>🏀 NBA Predictor</h1>", unsafe_allow_html=True)
-
+st.markdown("<h4 style='text-align:center; color: gray;'>by Jaden Cheung</h4>", unsafe_allow_html=True)
 mode = st.selectbox('Prediction Type', ['Game Outcome', 'Player Averages'])
 
 # === GAME OUTCOME ===

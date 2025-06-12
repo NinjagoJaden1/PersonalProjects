@@ -1,4 +1,5 @@
 id,date,home_team,away_team,home_points,away_points
+<<<<<<< HEAD
 15908681,2025-03-12,Memphis Grizzlies,Utah Jazz,122,115
 15908683,2025-03-12,Denver Nuggets,Minnesota Timberwolves,95,115
 15908679,2025-03-12,Miami Heat,LA Clippers,104,119
@@ -69,6 +70,8 @@ id,date,home_team,away_team,home_points,away_points
 15908736,2025-03-20,Golden State Warriors,Toronto Raptors,117,114
 15908727,2025-03-20,Los Angeles Lakers,Milwaukee Bucks,89,118
 15908742,2025-03-20,Indiana Pacers,Brooklyn Nets,105,99
+=======
+>>>>>>> b3a8400 (Describe what you changed, e.g. Add past matchups display)
 15908746,2025-03-21,Miami Heat,Houston Rockets,98,102
 15908754,2025-03-21,LA Clippers,Memphis Grizzlies,128,108
 15908745,2025-03-21,Washington Wizards,Orlando Magic,105,120
@@ -99,6 +102,7 @@ id,date,home_team,away_team,home_points,away_points
 15908770,2025-03-24,Washington Wizards,Toronto Raptors,104,112
 15908772,2025-03-24,New Orleans Pelicans,Philadelphia 76ers,112,99
 15908774,2025-03-24,Phoenix Suns,Milwaukee Bucks,108,106
+<<<<<<< HEAD
 15908773,2025-03-24,Denver Nuggets,Chicago Bulls,119,129
 15908775,2025-03-24,Sacramento Kings,Boston Celtics,95,113
 15908772,2025-03-24,New Orleans Pelicans,Philadelphia 76ers,112,99
@@ -135,10 +139,45 @@ id,date,home_team,away_team,home_points,away_points
 15908804,2025-03-28,Denver Nuggets,Utah Jazz,129,93
 15908809,2025-03-29,Memphis Grizzlies,Los Angeles Lakers,127,134
 15908811,2025-03-29,San Antonio Spurs,Boston Celtics,111,121
+=======
+15908775,2025-03-24,Sacramento Kings,Boston Celtics,95,113
+15908777,2025-03-25,Detroit Pistons,San Antonio Spurs,122,96
+15908781,2025-03-25,Utah Jazz,Memphis Grizzlies,103,140
+15908783,2025-03-25,Sacramento Kings,Oklahoma City Thunder,105,121
+15908776,2025-03-25,Charlotte Hornets,Orlando Magic,104,111
+15908778,2025-03-25,Miami Heat,Golden State Warriors,112,86
+15908779,2025-03-25,New York Knicks,Dallas Mavericks,128,113
+15908780,2025-03-25,Houston Rockets,Atlanta Hawks,121,114
+15908782,2025-03-25,Portland Trail Blazers,Cleveland Cavaliers,111,122
+15908784,2025-03-26,Philadelphia 76ers,Washington Wizards,114,119
+15908785,2025-03-26,Brooklyn Nets,Toronto Raptors,86,116
+15908788,2025-03-26,Denver Nuggets,Milwaukee Bucks,127,117
+15908786,2025-03-26,Indiana Pacers,Los Angeles Lakers,119,120
+15908787,2025-03-26,New York Knicks,LA Clippers,113,126
+15908789,2025-03-26,Phoenix Suns,Boston Celtics,102,132
+15908792,2025-03-27,Washington Wizards,Indiana Pacers,109,162
+15908796,2025-03-27,Utah Jazz,Houston Rockets,110,121
+15908794,2025-03-27,Chicago Bulls,Los Angeles Lakers,119,117
+15908790,2025-03-27,Cleveland Cavaliers,San Antonio Spurs,124,116
+15908791,2025-03-27,Orlando Magic,Dallas Mavericks,92,101
+15908793,2025-03-27,Miami Heat,Atlanta Hawks,122,112
+15908795,2025-03-27,Oklahoma City Thunder,Memphis Grizzlies,125,104
+15908797,2025-03-27,Sacramento Kings,Portland Trail Blazers,128,107
+15908800,2025-03-28,Toronto Raptors,Charlotte Hornets,108,97
+15908799,2025-03-28,Brooklyn Nets,LA Clippers,100,132
+15908803,2025-03-28,New Orleans Pelicans,Golden State Warriors,95,111
+15908804,2025-03-28,Denver Nuggets,Utah Jazz,129,93
+15908798,2025-03-28,Detroit Pistons,Cleveland Cavaliers,133,122
+15908801,2025-03-28,Milwaukee Bucks,New York Knicks,107,116
+15908802,2025-03-28,Minnesota Timberwolves,Phoenix Suns,124,109
+15908808,2025-03-29,Chicago Bulls,Dallas Mavericks,119,120
+15908809,2025-03-29,Memphis Grizzlies,Los Angeles Lakers,127,134
+>>>>>>> b3a8400 (Describe what you changed, e.g. Add past matchups display)
 15908805,2025-03-29,Orlando Magic,Sacramento Kings,121,91
 15908806,2025-03-29,Washington Wizards,Brooklyn Nets,112,115
 15908807,2025-03-29,Philadelphia 76ers,Miami Heat,95,118
 15908810,2025-03-29,Oklahoma City Thunder,Indiana Pacers,132,111
+<<<<<<< HEAD
 15908808,2025-03-29,Chicago Bulls,Dallas Mavericks,119,120
 15908815,2025-03-30,Minnesota Timberwolves,Detroit Pistons,123,104
 15908813,2025-03-30,New York Knicks,Portland Trail Blazers,110,93
@@ -149,11 +188,25 @@ id,date,home_team,away_team,home_points,away_points
 15908812,2025-03-30,Cleveland Cavaliers,LA Clippers,127,122
 15908816,2025-03-30,New Orleans Pelicans,Charlotte Hornets,98,94
 15908827,2025-03-31,Los Angeles Lakers,Houston Rockets,104,98
+=======
+15908811,2025-03-29,San Antonio Spurs,Boston Celtics,111,121
+15908818,2025-03-30,Philadelphia 76ers,Toronto Raptors,109,127
+15908814,2025-03-30,Milwaukee Bucks,Atlanta Hawks,124,145
+15908815,2025-03-30,Minnesota Timberwolves,Detroit Pistons,123,104
+15908813,2025-03-30,New York Knicks,Portland Trail Blazers,110,93
+15908816,2025-03-30,New Orleans Pelicans,Charlotte Hornets,98,94
+15908817,2025-03-30,San Antonio Spurs,Golden State Warriors,106,148
+15908819,2025-03-30,Phoenix Suns,Houston Rockets,109,148
+15908812,2025-03-30,Cleveland Cavaliers,LA Clippers,127,122
+15908821,2025-03-31,Indiana Pacers,Sacramento Kings,111,109
+15908822,2025-03-31,Orlando Magic,LA Clippers,87,96
+>>>>>>> b3a8400 (Describe what you changed, e.g. Add past matchups display)
 15908820,2025-03-31,Charlotte Hornets,Utah Jazz,110,106
 15908823,2025-03-31,Washington Wizards,Miami Heat,94,120
 15908824,2025-03-31,Memphis Grizzlies,Boston Celtics,103,117
 15908825,2025-03-31,Oklahoma City Thunder,Chicago Bulls,145,117
 15908826,2025-03-31,Dallas Mavericks,Brooklyn Nets,109,113
+<<<<<<< HEAD
 15908821,2025-03-31,Indiana Pacers,Sacramento Kings,111,109
 15908822,2025-03-31,Orlando Magic,LA Clippers,87,96
 15908830,2025-04-01,Chicago Bulls,Toronto Raptors,137,118
@@ -168,10 +221,24 @@ id,date,home_team,away_team,home_points,away_points
 15908842,2025-04-02,LA Clippers,New Orleans Pelicans,114,98
 15908836,2025-04-02,Washington Wizards,Sacramento Kings,116,111
 15908835,2025-04-02,Indiana Pacers,Charlotte Hornets,119,105
+=======
+15908827,2025-03-31,Los Angeles Lakers,Houston Rockets,104,98
+15908832,2025-04-01,Milwaukee Bucks,Phoenix Suns,133,123
+15908833,2025-04-01,Denver Nuggets,Minnesota Timberwolves,139,140
+15908719,2025-04-01,San Antonio Spurs,Orlando Magic,105,116
+15908828,2025-04-01,Atlanta Hawks,Portland Trail Blazers,113,127
+15908829,2025-04-01,New York Knicks,Philadelphia 76ers,105,91
+15908830,2025-04-01,Chicago Bulls,Toronto Raptors,137,118
+15908831,2025-04-01,Memphis Grizzlies,Golden State Warriors,125,134
+15908835,2025-04-02,Indiana Pacers,Charlotte Hornets,119,105
+15908836,2025-04-02,Washington Wizards,Sacramento Kings,116,111
+15908834,2025-04-02,Cleveland Cavaliers,New York Knicks,124,105
+>>>>>>> b3a8400 (Describe what you changed, e.g. Add past matchups display)
 15908837,2025-04-02,Boston Celtics,Miami Heat,103,124
 15908838,2025-04-02,Houston Rockets,Utah Jazz,143,105
 15908839,2025-04-02,Oklahoma City Thunder,Detroit Pistons,119,103
 15908840,2025-04-02,Dallas Mavericks,Atlanta Hawks,120,118
+<<<<<<< HEAD
 15908844,2025-04-03,Brooklyn Nets,Minnesota Timberwolves,90,105
 15908848,2025-04-03,Los Angeles Lakers,Golden State Warriors,116,123
 15908847,2025-04-03,Toronto Raptors,Portland Trail Blazers,103,112
@@ -231,6 +298,65 @@ id,date,home_team,away_team,home_points,away_points
 15908899,2025-04-10,Indiana Pacers,Cleveland Cavaliers,114,112
 15908898,2025-04-10,Detroit Pistons,New York Knicks,115,106
 15908912,2025-04-11,Utah Jazz,Oklahoma City Thunder,111,145
+=======
+15908841,2025-04-02,Denver Nuggets,San Antonio Spurs,106,113
+15908842,2025-04-02,LA Clippers,New Orleans Pelicans,114,98
+15908843,2025-04-03,Washington Wizards,Orlando Magic,97,109
+15908849,2025-04-04,Charlotte Hornets,Sacramento Kings,102,125
+15908853,2025-04-04,Chicago Bulls,Portland Trail Blazers,118,113
+15908854,2025-04-04,Houston Rockets,Oklahoma City Thunder,125,111
+15908856,2025-04-04,Golden State Warriors,Denver Nuggets,118,104
+15908855,2025-04-04,San Antonio Spurs,Cleveland Cavaliers,113,114
+15908852,2025-04-04,Toronto Raptors,Detroit Pistons,105,117
+15908857,2025-04-04,Los Angeles Lakers,New Orleans Pelicans,124,108
+15908858,2025-04-04,LA Clippers,Dallas Mavericks,114,91
+15908851,2025-04-04,Boston Celtics,Phoenix Suns,123,103
+15908850,2025-04-04,Indiana Pacers,Utah Jazz,140,112
+15908859,2025-04-05,Atlanta Hawks,New York Knicks,105,121
+15908862,2025-04-05,Miami Heat,Milwaukee Bucks,115,121
+15908863,2025-04-05,LA Clippers,Dallas Mavericks,135,104
+15908861,2025-04-05,Philadelphia 76ers,Minnesota Timberwolves,109,114
+15908860,2025-04-05,Detroit Pistons,Memphis Grizzlies,103,109
+15908866,2025-04-06,Oklahoma City Thunder,Los Angeles Lakers,99,126
+15908054,2025-04-06,New Orleans Pelicans,Milwaukee Bucks,107,111
+15908873,2025-04-06,Denver Nuggets,Indiana Pacers,120,125
+15908871,2025-04-06,New York Knicks,Phoenix Suns,112,98
+15908870,2025-04-06,Portland Trail Blazers,San Antonio Spurs,120,109
+15908874,2025-04-06,Golden State Warriors,Houston Rockets,96,106
+15908869,2025-04-06,Cleveland Cavaliers,Sacramento Kings,113,120
+15908864,2025-04-06,Charlotte Hornets,Chicago Bulls,117,131
+15908865,2025-04-06,Brooklyn Nets,Toronto Raptors,109,120
+15908867,2025-04-06,Atlanta Hawks,Utah Jazz,147,134
+15908868,2025-04-06,Boston Celtics,Washington Wizards,124,90
+15908876,2025-04-07,Miami Heat,Philadelphia 76ers,117,105
+15908875,2025-04-07,Detroit Pistons,Sacramento Kings,117,127
+15908883,2025-04-08,Milwaukee Bucks,Minnesota Timberwolves,110,103
+15908884,2025-04-08,Oklahoma City Thunder,Los Angeles Lakers,136,120
+15908886,2025-04-08,LA Clippers,San Antonio Spurs,122,117
+15908881,2025-04-08,Brooklyn Nets,New Orleans Pelicans,119,114
+15908882,2025-04-08,New York Knicks,Boston Celtics,117,119
+15908877,2025-04-08,Charlotte Hornets,Memphis Grizzlies,100,124
+15908885,2025-04-08,Phoenix Suns,Golden State Warriors,95,133
+15908878,2025-04-08,Cleveland Cavaliers,Chicago Bulls,135,113
+15908879,2025-04-08,Indiana Pacers,Washington Wizards,104,98
+15908880,2025-04-08,Orlando Magic,Atlanta Hawks,119,112
+15908895,2025-04-09,Phoenix Suns,Oklahoma City Thunder,112,125
+15908896,2025-04-09,Sacramento Kings,Denver Nuggets,116,124
+15908888,2025-04-09,Washington Wizards,Philadelphia 76ers,103,122
+15908893,2025-04-09,Utah Jazz,Portland Trail Blazers,133,126
+15908897,2025-04-09,LA Clippers,Houston Rockets,134,117
+15908887,2025-04-09,Orlando Magic,Boston Celtics,96,76
+15908889,2025-04-09,Toronto Raptors,Charlotte Hornets,126,96
+15908890,2025-04-09,Dallas Mavericks,Los Angeles Lakers,97,112
+15908891,2025-04-09,Chicago Bulls,Miami Heat,119,111
+15908894,2025-04-09,Golden State Warriors,San Antonio Spurs,111,114
+15908898,2025-04-10,Detroit Pistons,New York Knicks,115,106
+15908900,2025-04-10,Brooklyn Nets,Atlanta Hawks,109,133
+15908901,2025-04-10,Memphis Grizzlies,Minnesota Timberwolves,125,141
+15908892,2025-04-10,Milwaukee Bucks,New Orleans Pelicans,136,111
+15908899,2025-04-10,Indiana Pacers,Cleveland Cavaliers,114,112
+15908915,2025-04-11,Sacramento Kings,LA Clippers,100,101
+>>>>>>> b3a8400 (Describe what you changed, e.g. Add past matchups display)
 15908902,2025-04-11,Detroit Pistons,Milwaukee Bucks,119,125
 15908903,2025-04-11,Indiana Pacers,Orlando Magic,115,129
 15908904,2025-04-11,Philadelphia 76ers,Atlanta Hawks,110,124
@@ -241,16 +367,26 @@ id,date,home_team,away_team,home_points,away_points
 15908909,2025-04-11,Dallas Mavericks,Toronto Raptors,124,102
 15908910,2025-04-11,Minnesota Timberwolves,Brooklyn Nets,117,91
 15908911,2025-04-11,Denver Nuggets,Memphis Grizzlies,117,109
+<<<<<<< HEAD
 15908916,2025-04-11,Los Angeles Lakers,Houston Rockets,140,109
 15908913,2025-04-11,Phoenix Suns,San Antonio Spurs,117,98
 15908914,2025-04-11,Portland Trail Blazers,Golden State Warriors,86,103
 15908915,2025-04-11,Sacramento Kings,LA Clippers,100,101
 15908928,2025-04-13,San Antonio Spurs,Toronto Raptors,125,118
+=======
+15908912,2025-04-11,Utah Jazz,Oklahoma City Thunder,111,145
+15908916,2025-04-11,Los Angeles Lakers,Houston Rockets,140,109
+15908913,2025-04-11,Phoenix Suns,San Antonio Spurs,117,98
+15908914,2025-04-11,Portland Trail Blazers,Golden State Warriors,86,103
+15908927,2025-04-13,New Orleans Pelicans,Oklahoma City Thunder,100,115
+15908925,2025-04-13,Memphis Grizzlies,Dallas Mavericks,132,97
+>>>>>>> b3a8400 (Describe what you changed, e.g. Add past matchups display)
 15908924,2025-04-13,Houston Rockets,Denver Nuggets,111,126
 15908923,2025-04-13,Milwaukee Bucks,Detroit Pistons,140,133
 15908922,2025-04-13,Philadelphia 76ers,Chicago Bulls,102,122
 15908917,2025-04-13,Atlanta Hawks,Orlando Magic,117,105
 15908919,2025-04-13,Brooklyn Nets,New York Knicks,105,113
+<<<<<<< HEAD
 15908918,2025-04-13,Boston Celtics,Charlotte Hornets,93,86
 15908920,2025-04-13,Cleveland Cavaliers,Indiana Pacers,118,126
 15908921,2025-04-13,Miami Heat,Washington Wizards,118,119
@@ -266,11 +402,28 @@ id,date,home_team,away_team,home_points,away_points
 18421253,2025-04-16,Chicago Bulls,Miami Heat,90,109
 18423251,2025-04-18,Memphis Grizzlies,Dallas Mavericks,120,106
 18423164,2025-04-18,Atlanta Hawks,Miami Heat,114,123
+=======
+15908929,2025-04-13,Golden State Warriors,LA Clippers,119,124
+15908930,2025-04-13,Portland Trail Blazers,Los Angeles Lakers,109,81
+15908931,2025-04-13,Sacramento Kings,Phoenix Suns,109,98
+15908918,2025-04-13,Boston Celtics,Charlotte Hornets,93,86
+15908928,2025-04-13,San Antonio Spurs,Toronto Raptors,125,118
+15908926,2025-04-13,Minnesota Timberwolves,Utah Jazz,116,105
+15908920,2025-04-13,Cleveland Cavaliers,Indiana Pacers,118,126
+15908921,2025-04-13,Miami Heat,Washington Wizards,118,119
+18421229,2025-04-15,Orlando Magic,Atlanta Hawks,120,95
+18421910,2025-04-15,Golden State Warriors,Memphis Grizzlies,121,116
+18421253,2025-04-16,Chicago Bulls,Miami Heat,90,109
+18421908,2025-04-16,Sacramento Kings,Dallas Mavericks,106,120
+18423164,2025-04-18,Atlanta Hawks,Miami Heat,114,123
+18423251,2025-04-18,Memphis Grizzlies,Dallas Mavericks,120,106
+>>>>>>> b3a8400 (Describe what you changed, e.g. Add past matchups display)
 18421937,2025-04-19,New York Knicks,Detroit Pistons,123,112
 18421938,2025-04-19,Indiana Pacers,Milwaukee Bucks,117,98
 18421939,2025-04-19,Los Angeles Lakers,Minnesota Timberwolves,95,117
 18421940,2025-04-19,Denver Nuggets,LA Clippers,112,110
 18422268,2025-04-20,Boston Celtics,Orlando Magic,103,86
+<<<<<<< HEAD
 18425147,2025-04-20,Cleveland Cavaliers,Miami Heat,121,100
 18422290,2025-04-20,Houston Rockets,Golden State Warriors,85,95
 18425247,2025-04-20,Oklahoma City Thunder,Memphis Grizzlies,131,80
@@ -288,36 +441,75 @@ id,date,home_team,away_team,home_points,away_points
 18422300,2025-04-25,Milwaukee Bucks,Indiana Pacers,117,101
 18422299,2025-04-25,Orlando Magic,Boston Celtics,95,93
 18422301,2025-04-25,Minnesota Timberwolves,Los Angeles Lakers,116,104
+=======
+18425247,2025-04-20,Oklahoma City Thunder,Memphis Grizzlies,131,80
+18425147,2025-04-20,Cleveland Cavaliers,Miami Heat,121,100
+18422290,2025-04-20,Houston Rockets,Golden State Warriors,85,95
+18422291,2025-04-21,New York Knicks,Detroit Pistons,94,100
+18422292,2025-04-21,Denver Nuggets,LA Clippers,102,105
+18425252,2025-04-22,Oklahoma City Thunder,Memphis Grizzlies,118,99
+18422295,2025-04-23,Boston Celtics,Orlando Magic,109,100
+18425154,2025-04-23,Cleveland Cavaliers,Miami Heat,121,112
+18422296,2025-04-23,Houston Rockets,Golden State Warriors,109,94
+18425258,2025-04-24,Memphis Grizzlies,Oklahoma City Thunder,108,114
+18422297,2025-04-24,Detroit Pistons,New York Knicks,116,118
+18422298,2025-04-24,LA Clippers,Denver Nuggets,117,83
+18422300,2025-04-25,Milwaukee Bucks,Indiana Pacers,117,101
+18422301,2025-04-25,Minnesota Timberwolves,Los Angeles Lakers,116,104
+18422299,2025-04-25,Orlando Magic,Boston Celtics,95,93
+>>>>>>> b3a8400 (Describe what you changed, e.g. Add past matchups display)
 18425264,2025-04-26,Memphis Grizzlies,Oklahoma City Thunder,115,117
 18422302,2025-04-26,Golden State Warriors,Houston Rockets,104,93
 18422303,2025-04-26,LA Clippers,Denver Nuggets,99,101
 18425162,2025-04-26,Miami Heat,Cleveland Cavaliers,87,124
 18422306,2025-04-27,Milwaukee Bucks,Indiana Pacers,103,129
 18422305,2025-04-27,Detroit Pistons,New York Knicks,93,94
+<<<<<<< HEAD
 18422304,2025-04-27,Orlando Magic,Boston Celtics,98,107
 18422307,2025-04-27,Minnesota Timberwolves,Los Angeles Lakers,116,113
 18422308,2025-04-28,Golden State Warriors,Houston Rockets,109,106
 18425169,2025-04-28,Miami Heat,Cleveland Cavaliers,83,138
 18422310,2025-04-29,New York Knicks,Detroit Pistons,103,106
+=======
+18422307,2025-04-27,Minnesota Timberwolves,Los Angeles Lakers,116,113
+18422304,2025-04-27,Orlando Magic,Boston Celtics,98,107
+18425169,2025-04-28,Miami Heat,Cleveland Cavaliers,83,138
+18422308,2025-04-28,Golden State Warriors,Houston Rockets,109,106
+18422310,2025-04-29,New York Knicks,Detroit Pistons,103,106
+18422309,2025-04-29,Boston Celtics,Orlando Magic,120,89
+>>>>>>> b3a8400 (Describe what you changed, e.g. Add past matchups display)
 18422311,2025-04-29,Indiana Pacers,Milwaukee Bucks,119,118
 18422312,2025-04-29,Denver Nuggets,LA Clippers,131,115
 18422313,2025-04-30,Houston Rockets,Golden State Warriors,131,116
 18422314,2025-04-30,Los Angeles Lakers,Minnesota Timberwolves,96,103
+<<<<<<< HEAD
 18422316,2025-05-01,Detroit Pistons,New York Knicks,113,116
 18422317,2025-05-01,LA Clippers,Denver Nuggets,111,105
+=======
+18422317,2025-05-01,LA Clippers,Denver Nuggets,111,105
+18422316,2025-05-01,Detroit Pistons,New York Knicks,113,116
+>>>>>>> b3a8400 (Describe what you changed, e.g. Add past matchups display)
 18422319,2025-05-02,Golden State Warriors,Houston Rockets,107,115
 18422323,2025-05-03,Denver Nuggets,LA Clippers,120,101
 18422325,2025-05-04,Houston Rockets,Golden State Warriors,89,103
 18435059,2025-05-04,Cleveland Cavaliers,Indiana Pacers,112,121
+<<<<<<< HEAD
 18436460,2025-05-05,Oklahoma City Thunder,Denver Nuggets,119,121
 18435668,2025-05-05,Boston Celtics,New York Knicks,105,108
 18436932,2025-05-06,Minnesota Timberwolves,Golden State Warriors,88,99
 18435236,2025-05-06,Cleveland Cavaliers,Indiana Pacers,119,120
+=======
+18435668,2025-05-05,Boston Celtics,New York Knicks,105,108
+18436460,2025-05-05,Oklahoma City Thunder,Denver Nuggets,119,121
+18435236,2025-05-06,Cleveland Cavaliers,Indiana Pacers,119,120
+18436932,2025-05-06,Minnesota Timberwolves,Golden State Warriors,88,99
+>>>>>>> b3a8400 (Describe what you changed, e.g. Add past matchups display)
 18435670,2025-05-07,Boston Celtics,New York Knicks,90,91
 18436463,2025-05-07,Oklahoma City Thunder,Denver Nuggets,149,106
 18436935,2025-05-08,Minnesota Timberwolves,Golden State Warriors,117,93
 18435237,2025-05-09,Indiana Pacers,Cleveland Cavaliers,104,126
 18436465,2025-05-09,Denver Nuggets,Oklahoma City Thunder,113,104
+<<<<<<< HEAD
 18435672,2025-05-10,New York Knicks,Boston Celtics,93,115
 18436939,2025-05-10,Golden State Warriors,Minnesota Timberwolves,97,102
 18435238,2025-05-11,Indiana Pacers,Cleveland Cavaliers,129,109
@@ -326,6 +518,16 @@ id,date,home_team,away_team,home_points,away_points
 18435674,2025-05-12,New York Knicks,Boston Celtics,121,113
 18435239,2025-05-13,Cleveland Cavaliers,Indiana Pacers,105,114
 18436945,2025-05-13,Oklahoma City Thunder,Denver Nuggets,112,105
+=======
+18436939,2025-05-10,Golden State Warriors,Minnesota Timberwolves,97,102
+18435672,2025-05-10,New York Knicks,Boston Celtics,93,115
+18435238,2025-05-11,Indiana Pacers,Cleveland Cavaliers,129,109
+18436468,2025-05-11,Denver Nuggets,Oklahoma City Thunder,87,92
+18435674,2025-05-12,New York Knicks,Boston Celtics,121,113
+18436943,2025-05-12,Golden State Warriors,Minnesota Timberwolves,110,117
+18436945,2025-05-13,Oklahoma City Thunder,Denver Nuggets,112,105
+18435239,2025-05-13,Cleveland Cavaliers,Indiana Pacers,105,114
+>>>>>>> b3a8400 (Describe what you changed, e.g. Add past matchups display)
 18436947,2025-05-14,Minnesota Timberwolves,Golden State Warriors,121,110
 18435676,2025-05-14,Boston Celtics,New York Knicks,127,102
 18436949,2025-05-15,Denver Nuggets,Oklahoma City Thunder,119,107
@@ -345,6 +547,7 @@ id,date,home_team,away_team,home_points,away_points
 18444558,2025-06-05,Oklahoma City Thunder,Indiana Pacers,110,111
 18444559,2025-06-08,Oklahoma City Thunder,Indiana Pacers,123,107
 18444560,2025-06-11,Indiana Pacers,Oklahoma City Thunder,116,107
+<<<<<<< HEAD
 16968274,2024-12-12,Boston Celtics,Detroit Pistons,123,99
 16968275,2024-12-12,Miami Heat,Toronto Raptors,114,104
 16968276,2024-12-12,New Orleans Pelicans,Sacramento Kings,109,111
@@ -388,6 +591,11 @@ id,date,home_team,away_team,home_points,away_points
 15907810,2024-12-20,Philadelphia 76ers,Charlotte Hornets,108,98
 15907811,2024-12-20,Cleveland Cavaliers,Milwaukee Bucks,124,101
 15907812,2024-12-20,Miami Heat,Oklahoma City Thunder,97,104
+=======
+18444561,2025-06-13,Indiana Pacers,Oklahoma City Thunder,104,111
+18444562,2025-06-16,Oklahoma City Thunder,Indiana Pacers,120,109
+18444563,2025-06-19,Indiana Pacers,Oklahoma City Thunder,108,91
+>>>>>>> b3a8400 (Describe what you changed, e.g. Add past matchups display)
 15907824,2024-12-21,Phoenix Suns,Detroit Pistons,125,133
 15907813,2024-12-21,Sacramento Kings,Los Angeles Lakers,99,103
 15907814,2024-12-21,Orlando Magic,Miami Heat,121,114
@@ -445,3 +653,149 @@ id,date,home_team,away_team,home_points,away_points
 15907869,2024-12-28,Denver Nuggets,Detroit Pistons,134,121
 15907871,2024-12-28,Portland Trail Blazers,Dallas Mavericks,126,122
 15907872,2024-12-28,Los Angeles Lakers,Sacramento Kings,132,122
+<<<<<<< HEAD
+=======
+15907867,2024-12-28,Chicago Bulls,Milwaukee Bucks,116,111
+15907870,2024-12-28,Utah Jazz,Philadelphia 76ers,111,114
+15907864,2024-12-28,Atlanta Hawks,Miami Heat,120,110
+15907876,2024-12-29,Houston Rockets,Miami Heat,100,104
+15907877,2024-12-29,Oklahoma City Thunder,Memphis Grizzlies,130,106
+15907878,2024-12-29,Minnesota Timberwolves,San Antonio Spurs,112,110
+15907873,2024-12-29,Orlando Magic,Brooklyn Nets,102,101
+15907875,2024-12-29,Toronto Raptors,Atlanta Hawks,107,136
+15907874,2024-12-29,Boston Celtics,Indiana Pacers,114,123
+15907884,2024-12-30,Portland Trail Blazers,Philadelphia 76ers,103,125
+15907883,2024-12-30,Golden State Warriors,Cleveland Cavaliers,95,113
+15907885,2024-12-30,Sacramento Kings,Dallas Mavericks,110,100
+15907879,2024-12-30,Charlotte Hornets,Chicago Bulls,108,115
+15907880,2024-12-30,Washington Wizards,New York Knicks,106,126
+15907881,2024-12-30,New Orleans Pelicans,LA Clippers,113,116
+15907882,2024-12-30,Utah Jazz,Denver Nuggets,121,132
+15907889,2024-12-31,Oklahoma City Thunder,Minnesota Timberwolves,113,105
+15907890,2024-12-31,Phoenix Suns,Memphis Grizzlies,112,117
+15907886,2024-12-31,Boston Celtics,Toronto Raptors,125,71
+15907887,2024-12-31,Indiana Pacers,Milwaukee Bucks,112,120
+15907888,2024-12-31,San Antonio Spurs,LA Clippers,122,86
+15907891,2024-12-31,Los Angeles Lakers,Cleveland Cavaliers,110,122
+15907892,2025-01-01,Detroit Pistons,Orlando Magic,105,96
+15907895,2025-01-01,New York Knicks,Utah Jazz,119,103
+15907893,2025-01-01,Washington Wizards,Chicago Bulls,125,107
+15907894,2025-01-01,Miami Heat,New Orleans Pelicans,119,108
+15907896,2025-01-01,Toronto Raptors,Brooklyn Nets,130,113
+15907897,2025-01-01,Houston Rockets,Dallas Mavericks,110,99
+15907898,2025-01-01,Denver Nuggets,Atlanta Hawks,139,120
+15907899,2025-01-01,Sacramento Kings,Philadelphia 76ers,113,107
+15907900,2025-01-02,Miami Heat,Indiana Pacers,115,128
+15907901,2025-01-02,Minnesota Timberwolves,Boston Celtics,115,118
+15907905,2025-01-02,Los Angeles Lakers,Portland Trail Blazers,114,106
+15907902,2025-01-02,Milwaukee Bucks,Brooklyn Nets,110,113
+15907903,2025-01-02,Oklahoma City Thunder,LA Clippers,116,98
+15907904,2025-01-02,Golden State Warriors,Philadelphia 76ers,139,105
+15907913,2025-01-03,Sacramento Kings,Memphis Grizzlies,138,133
+15907914,2025-01-03,Los Angeles Lakers,Atlanta Hawks,119,102
+15907911,2025-01-03,Dallas Mavericks,Cleveland Cavaliers,122,134
+15907906,2025-01-03,Detroit Pistons,Charlotte Hornets,98,94
+15907907,2025-01-03,Toronto Raptors,Orlando Magic,97,106
+15907908,2025-01-03,Houston Rockets,Boston Celtics,86,109
+15907909,2025-01-03,New Orleans Pelicans,Washington Wizards,132,120
+15907914,2025-01-03,Los Angeles Lakers,Atlanta Hawks,119,102
+15907913,2025-01-03,Sacramento Kings,Memphis Grizzlies,138,133
+15907911,2025-01-03,Dallas Mavericks,Cleveland Cavaliers,122,134
+15907912,2025-01-03,Denver Nuggets,San Antonio Spurs,110,113
+15907910,2025-01-03,Oklahoma City Thunder,New York Knicks,117,107
+15907906,2025-01-03,Detroit Pistons,Charlotte Hornets,98,94
+15907907,2025-01-03,Toronto Raptors,Orlando Magic,97,106
+15907916,2025-01-04,Detroit Pistons,Minnesota Timberwolves,119,105
+15907915,2025-01-04,Brooklyn Nets,Philadelphia 76ers,94,123
+15907923,2025-01-04,LA Clippers,Atlanta Hawks,131,105
+15907922,2025-01-04,Golden State Warriors,Memphis Grizzlies,121,113
+15907921,2025-01-04,San Antonio Spurs,Denver Nuggets,111,122
+15907920,2025-01-04,Milwaukee Bucks,Portland Trail Blazers,102,105
+15907919,2025-01-04,Chicago Bulls,New York Knicks,139,126
+15907918,2025-01-04,Miami Heat,Utah Jazz,100,136
+15907917,2025-01-04,Indiana Pacers,Phoenix Suns,126,108
+15907926,2025-01-05,Washington Wizards,New Orleans Pelicans,98,110
+15907925,2025-01-05,Cleveland Cavaliers,Charlotte Hornets,115,105
+15907924,2025-01-05,Oklahoma City Thunder,Boston Celtics,105,92
+15907928,2025-01-05,Houston Rockets,Los Angeles Lakers,119,115
+15907929,2025-01-05,Golden State Warriors,Sacramento Kings,99,129
+15907927,2025-01-05,Orlando Magic,Utah Jazz,92,105
+15907931,2025-01-06,Philadelphia 76ers,Phoenix Suns,99,109
+15907933,2025-01-06,New York Knicks,Orlando Magic,94,103
+15907934,2025-01-06,Toronto Raptors,Milwaukee Bucks,104,128
+15907936,2025-01-06,Memphis Grizzlies,Dallas Mavericks,119,104
+15907938,2025-01-06,Sacramento Kings,Miami Heat,123,118
+15907930,2025-01-06,Detroit Pistons,Portland Trail Blazers,118,115
+15907932,2025-01-06,Brooklyn Nets,Indiana Pacers,99,113
+15907937,2025-01-06,Minnesota Timberwolves,LA Clippers,108,106
+15907935,2025-01-06,Chicago Bulls,San Antonio Spurs,114,110
+15907944,2025-01-07,Denver Nuggets,Boston Celtics,106,118
+15907941,2025-01-07,Dallas Mavericks,Los Angeles Lakers,118,97
+15907940,2025-01-07,Washington Wizards,Houston Rockets,112,135
+15907942,2025-01-07,New Orleans Pelicans,Minnesota Timberwolves,97,104
+15907943,2025-01-07,Utah Jazz,Atlanta Hawks,121,124
+15907939,2025-01-07,Charlotte Hornets,Phoenix Suns,115,104
+15907945,2025-01-07,Golden State Warriors,Miami Heat,98,114
+15907949,2025-01-08,Philadelphia 76ers,Washington Wizards,109,103
+15907946,2025-01-08,Cleveland Cavaliers,Oklahoma City Thunder,129,122
+15907947,2025-01-08,Indiana Pacers,Chicago Bulls,129,113
+15907952,2025-01-08,Denver Nuggets,LA Clippers,126,103
+15907951,2025-01-08,New Orleans Pelicans,Portland Trail Blazers,100,119
+15907950,2025-01-08,Brooklyn Nets,Detroit Pistons,98,113
+15907953,2025-01-08,Milwaukee Bucks,San Antonio Spurs,121,105
+15907948,2025-01-08,New York Knicks,Toronto Raptors,112,98
+15907956,2025-01-09,Orlando Magic,Minnesota Timberwolves,89,104
+15907955,2025-01-09,Detroit Pistons,Golden State Warriors,104,107
+15907960,2025-01-09,Utah Jazz,Miami Heat,92,97
+15907959,2025-01-09,Phoenix Suns,Atlanta Hawks,123,115
+15907958,2025-01-09,Dallas Mavericks,Portland Trail Blazers,117,111
+15907954,2025-01-09,Cleveland Cavaliers,Toronto Raptors,132,126
+15907957,2025-01-09,Memphis Grizzlies,Houston Rockets,115,119
+15907962,2025-01-10,Indiana Pacers,Golden State Warriors,108,96
+15907964,2025-01-10,Philadelphia 76ers,New Orleans Pelicans,115,123
+15907963,2025-01-10,Orlando Magic,Milwaukee Bucks,106,109
+15907966,2025-01-10,New York Knicks,Oklahoma City Thunder,101,126
+15907965,2025-01-10,Boston Celtics,Sacramento Kings,97,114
+15907968,2025-01-10,Denver Nuggets,Brooklyn Nets,124,105
+15907967,2025-01-10,Chicago Bulls,Washington Wizards,138,105
+15907971,2025-01-11,Detroit Pistons,Toronto Raptors,123,114
+15907973,2025-01-11,Portland Trail Blazers,Miami Heat,98,119
+15907972,2025-01-11,Minnesota Timberwolves,Memphis Grizzlies,125,127
+15907970,2025-01-11,Phoenix Suns,Utah Jazz,114,106
+15907982,2025-01-12,Washington Wizards,Oklahoma City Thunder,95,136
+15907976,2025-01-12,New York Knicks,Milwaukee Bucks,140,106
+15907984,2025-01-12,Phoenix Suns,Charlotte Hornets,120,113
+15907983,2025-01-12,Utah Jazz,Brooklyn Nets,112,111
+15907981,2025-01-12,Orlando Magic,Philadelphia 76ers,104,99
+15907979,2025-01-12,Boston Celtics,New Orleans Pelicans,120,119
+15907978,2025-01-12,Chicago Bulls,Sacramento Kings,119,124
+15907980,2025-01-12,Cleveland Cavaliers,Indiana Pacers,93,108
+15907977,2025-01-12,Dallas Mavericks,Denver Nuggets,101,112
+15907988,2025-01-13,Houston Rockets,Memphis Grizzlies,120,118
+15907986,2025-01-13,New York Knicks,Detroit Pistons,119,124
+15907987,2025-01-13,Toronto Raptors,Golden State Warriors,104,101
+15907989,2025-01-13,Los Angeles Lakers,San Antonio Spurs,102,126
+15907990,2025-01-13,LA Clippers,Miami Heat,109,98
+15907985,2025-01-13,Washington Wizards,Minnesota Timberwolves,106,120
+15907991,2025-01-14,Indiana Pacers,Cleveland Cavaliers,117,127
+15907995,2025-01-14,Milwaukee Bucks,Sacramento Kings,130,115
+15907994,2025-01-14,Chicago Bulls,New Orleans Pelicans,113,119
+15907993,2025-01-14,Atlanta Hawks,Phoenix Suns,122,117
+15907997,2025-01-14,Portland Trail Blazers,Brooklyn Nets,114,132
+15907992,2025-01-14,Philadelphia 76ers,Oklahoma City Thunder,102,118
+15907996,2025-01-14,Dallas Mavericks,Denver Nuggets,99,118
+15908006,2025-01-15,Utah Jazz,Charlotte Hornets,112,117
+15908007,2025-01-15,Los Angeles Lakers,Miami Heat,117,108
+15908008,2025-01-15,LA Clippers,Brooklyn Nets,126,67
+15908000,2025-01-15,Chicago Bulls,Atlanta Hawks,94,110
+15907999,2025-01-15,Toronto Raptors,Boston Celtics,110,97
+15907998,2025-01-15,Philadelphia 76ers,New York Knicks,119,125
+15908001,2025-01-15,Milwaukee Bucks,Orlando Magic,122,93
+15908002,2025-01-15,Minnesota Timberwolves,Golden State Warriors,115,116
+15908003,2025-01-15,New Orleans Pelicans,Dallas Mavericks,119,116
+15908004,2025-01-15,San Antonio Spurs,Memphis Grizzlies,115,129
+15908005,2025-01-15,Denver Nuggets,Houston Rockets,108,128
+15908012,2025-01-16,Portland Trail Blazers,LA Clippers,89,118
+15908011,2025-01-16,Oklahoma City Thunder,Cleveland Cavaliers,134,114
+15908009,2025-01-16,Detroit Pistons,Indiana Pacers,100,111
+>>>>>>> b3a8400 (Describe what you changed, e.g. Add past matchups display)
