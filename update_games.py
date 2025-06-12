@@ -1,4 +1,5 @@
 import os
+from datetime import date
 import requests
 import pandas as pd
 from tqdm import tqdm
@@ -12,18 +13,31 @@ GAMES_URL = "https://api.balldontlie.io/v1/games"
 STATS_URL = "https://api.balldontlie.io/v1/stats"
 
 
+# === Helper ===
+def _current_season_start() -> int:
+    """Return the starting year of the most recent NBA season."""
+    today = date.today()
+    return today.year if today.month >= 10 else today.year - 1
+
+
 # === Fetch Latest Games ===
-def fetch_all_games(start_date="2023-10-01", end_date="2024-06-30"):
-    print(f"📅 Fetching all games from {start_date} to {end_date}...")
+def fetch_all_games(start_date: str, end_date: str) -> list:
+    """Return all completed regular season games between the dates."""
+    print(f"📅 Fetching games from {start_date} to {end_date}...")
     games = []
     cursor = None
 
     while True:
-        url = f"{GAMES_URL}?start_date={start_date}&end_date={end_date}&per_page=100"
+        params = {
+            "start_date": start_date,
+            "end_date": end_date,
+            "per_page": 100,
+            "postseason": "false",
+        }
         if cursor:
-            url += f"&cursor={cursor}"
+            params["cursor"] = cursor
 
-        resp = requests.get(url, headers=HEADERS)
+        resp = requests.get(GAMES_URL, headers=HEADERS, params=params)
         if resp.status_code != 200:
             print(f"❌ Error {resp.status_code}: {resp.text}")
             break
@@ -39,7 +53,8 @@ def fetch_all_games(start_date="2023-10-01", end_date="2024-06-30"):
                 "away_points": g["visitor_team_score"],
             }
             for g in data["data"]
-            if g["home_team_score"] > 0 and g["visitor_team_score"] > 0
+            if g["home_team_score"] is not None
+            and g["visitor_team_score"] is not None
         ]
 
         games.extend(page_games)
@@ -58,21 +73,23 @@ def fetch_all_games(start_date="2023-10-01", end_date="2024-06-30"):
 
 
 # === Fetch Player Stats for a Single Game ===
-def fetch_stats_for_game(game_id: int):
-    """Fetch all player stats for a single game."""
-    params = {"game_ids[]": game_id, "per_page": 100, "page": 1}
-    page = 1
-    total_pages = 1
+def fetch_stats_for_game(game_id: int) -> list:
+    """Fetch all player stats for a single game using cursor pagination."""
     stats = []
-    while page <= total_pages:
-        print(f"📦 Fetching stats for game ID {game_id}, page {page}")
-        print("🔑 Using headers:", HEADERS)  # Optional debug line
+    cursor = None
+    while True:
+        params = {"game_ids[]": game_id, "per_page": 100}
+        if cursor:
+            params["cursor"] = cursor
+
         resp = requests.get(STATS_URL, params=params, headers=HEADERS)
         resp.raise_for_status()
         data = resp.json()
-        total_pages = data["meta"]["total_pages"]
-        stats.extend(data["data"])
-        page += 1
+        stats.extend(data.get("data", []))
+
+        cursor = data.get("meta", {}).get("next_cursor")
+        if not cursor:
+            break
     return stats
 
 
@@ -87,8 +104,11 @@ def collect_player_stats(games):
                 continue
             for stat in game_stats:
                 team = stat["team"]["full_name"]
-                opponent = game["away_team"] if team == game["home_team"] else game["home_team"]
+                opponent = (
+                    game["away_team"] if team == game["home_team"] else game["home_team"]
+                )
                 all_stats.append({
+                    "game_id": game["id"],
                     "date": game["date"],
                     "player": stat["player"]["full_name"],
                     "team": team,
@@ -116,7 +136,11 @@ def save_to_csv(path: str, rows: list):
 
 # === Main Entry Point ===
 def main():
-    games = fetch_all_games(start_date="2023-10-01", end_date="2024-06-30")
+    season_start = _current_season_start()
+    start_date = f"{season_start}-10-01"
+    end_date = f"{season_start + 1}-06-30"
+
+    games = fetch_all_games(start_date=start_date, end_date=end_date)
     stats = collect_player_stats(games)
     save_to_csv(GAMES_PATH, games)
     save_to_csv(STATS_PATH, stats)
