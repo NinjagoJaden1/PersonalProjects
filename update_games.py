@@ -1,78 +1,115 @@
 import os
+import time
+from datetime import datetime, timedelta
+from dateutil.relativedelta import relativedelta
 import requests
 import pandas as pd
 from tqdm import tqdm
 
 DATA_DIR = "data"
 GAMES_PATH = os.path.join(DATA_DIR, "sample_games.csv")
-STATS_PATH = os.path.join(DATA_DIR, "sample_player_stats.csv")
+STATS_PATH = os.path.join(DATA_DIR, "recent_player_stats.csv")
 API_KEY = "9df1a841-76f7-4aab-93f4-ef92a6b0abc1"
 HEADERS = {"Authorization": API_KEY}
 GAMES_URL = "https://api.balldontlie.io/v1/games"
 STATS_URL = "https://api.balldontlie.io/v1/stats"
 
 
-# === Fetch Latest Games ===
-def fetch_all_games(start_date="2023-10-01", end_date="2024-06-30"):
-    print(f"📅 Fetching all games from {start_date} to {end_date}...")
+# === Fetch Games in Backward Chunks ===
+def fetch_recent_games(limit: int = 500) -> list:
     games = []
+    end = datetime.today()
+
+    print(f"📅 Fetching the most recent {limit} games...")
+
+    while len(games) < limit:
+        chunk_start = end - relativedelta(months=3)  # <-- 3-month chunk
+        s = chunk_start.strftime("%Y-%m-%d")
+        e = end.strftime("%Y-%m-%d")
+        print(f"🗓️  Chunk: {s} → {e}")
+
+        cursor = None
+        while True:
+            params = {
+                "start_date": s,
+                "end_date": e,
+                "per_page": 100,
+            }
+            if cursor:
+                params["cursor"] = cursor
+
+            resp = requests.get(GAMES_URL, headers=HEADERS, params=params)
+            if resp.status_code != 200:
+                print(f"❌ Error {resp.status_code}: {resp.text}")
+                return games
+
+            data = resp.json()
+
+            if not data["data"]:
+                print(f"⚠️ No games found between {s} and {e}.")
+                break
+
+            page_games = [
+                {
+                    "id": g["id"],
+                    "date": g["date"][:10],
+                    "home_team": g["home_team"]["full_name"],
+                    "away_team": g["visitor_team"]["full_name"],
+                    "home_points": g["home_team_score"],
+                    "away_points": g["visitor_team_score"],
+                }
+                for g in data["data"]
+                if g["home_team_score"] is not None and g["visitor_team_score"] is not None
+            ]
+
+            games.extend(page_games)
+            print(f"📦 Retrieved {len(page_games)} games... Total so far: {len(games)}")
+
+            if len(games) >= limit:
+                print("✅ Reached game limit. Stopping.")
+                return games[:limit]
+
+            cursor = data.get("meta", {}).get("next_cursor")
+            if not cursor:
+                break
+
+        end = chunk_start  # move the 3-month window backward
+
+    print(f"✅ Finished. Total games collected: {len(games)}")
+    return games[:limit]
+
+
+
+
+
+
+# === Fetch Player Stats for One Game ===
+def fetch_stats_for_game(game_id: int) -> list:
+    stats = []
     cursor = None
-
     while True:
-        url = f"{GAMES_URL}?start_date={start_date}&end_date={end_date}&per_page=100"
+        params = {"game_ids[]": game_id, "per_page": 100}
         if cursor:
-            url += f"&cursor={cursor}"
+            params["cursor"] = cursor
 
-        resp = requests.get(url, headers=HEADERS)
-        if resp.status_code != 200:
-            print(f"❌ Error {resp.status_code}: {resp.text}")
+        for _ in range(5):
+            resp = requests.get(STATS_URL, params=params, headers=HEADERS)
+            if resp.status_code == 429:
+                print(f"⏳ Rate limited fetching stats for game {game_id}. Sleeping 10s...")
+                time.sleep(10)
+                continue
+            elif resp.status_code != 200:
+                print(f"❌ Error fetching stats for game {game_id}: {resp.text}")
+                return stats
             break
 
+        time.sleep(1.2)
         data = resp.json()
-        page_games = [
-            {
-                "id": g["id"],
-                "date": g["date"][:10],
-                "home_team": g["home_team"]["full_name"],
-                "away_team": g["visitor_team"]["full_name"],
-                "home_points": g["home_team_score"],
-                "away_points": g["visitor_team_score"],
-            }
-            for g in data["data"]
-            if g["home_team_score"] > 0 and g["visitor_team_score"] > 0
-        ]
-
-        games.extend(page_games)
-        print(f"📦 Retrieved {len(page_games)} games... Total: {len(games)}")
+        stats.extend(data.get("data", []))
 
         cursor = data.get("meta", {}).get("next_cursor")
         if not cursor:
             break
-
-    print(f"✅ Total games fetched: {len(games)}")
-    return games
-
-
-
-
-
-
-# === Fetch Player Stats for a Single Game ===
-def fetch_stats_for_game(game_id: int):
-    """Fetch all player stats for a single game."""
-    params = {"game_ids[]": game_id, "per_page": 100, "page": 1}
-    page = 1
-    total_pages = 1
-    stats = []
-    while page <= total_pages:
-        print(f"📦 Fetching stats for game ID {game_id}, page {page}")
-        print("🔑 Using headers:", HEADERS)  # Optional debug line
-        resp = requests.get(STATS_URL, params=params, headers=HEADERS)
-        resp.raise_for_status()
-        data = resp.json()
-        total_pages = data["meta"]["total_pages"]
-        stats.extend(data["data"])
-        page += 1
     return stats
 
 
@@ -83,12 +120,15 @@ def collect_player_stats(games):
         try:
             game_stats = fetch_stats_for_game(game["id"])
             if not game_stats:
-                print(f"⚠️ No stats found for game {game['id']} ({game['date']})")
+                print(f"⚠️ No stats for game {game['id']} ({game['date']})")
                 continue
             for stat in game_stats:
                 team = stat["team"]["full_name"]
-                opponent = game["away_team"] if team == game["home_team"] else game["home_team"]
+                opponent = (
+                    game["away_team"] if team == game["home_team"] else game["home_team"]
+                )
                 all_stats.append({
+                    "game_id": game["id"],
                     "date": game["date"],
                     "player": stat["player"]["full_name"],
                     "team": team,
@@ -114,12 +154,19 @@ def save_to_csv(path: str, rows: list):
     print(f"✅ Saved {len(rows)} rows to {path}")
 
 
-# === Main Entry Point ===
+# === Main ===
 def main():
-    games = fetch_all_games(start_date="2023-10-01", end_date="2024-06-30")
-    stats = collect_player_stats(games)
+    games = fetch_recent_games(limit=500)
+
+    if not games:
+        print("⚠️ No games found.")
+        return
+
     save_to_csv(GAMES_PATH, games)
-    save_to_csv(STATS_PATH, stats)
+
+    # If you want to re-enable player stats later:
+    # stats = collect_player_stats(games)
+    # save_to_csv(STATS_PATH, stats)
 
 
 if __name__ == "__main__":
