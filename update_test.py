@@ -7,3 +7,4 @@ url = "https://api.balldontlie.io/v1/games?start_date=2024-06-01&end_date=2024-0
 resp = requests.get(url, headers=HEADERS)
 print("Status:", resp.status_code)
 print("Body:", resp.text)
+print("hi")
