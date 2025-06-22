@@ -37,6 +37,37 @@ def compute_team_ratings(games):
     return ratings
 
 
+def compute_team_point_avgs(games):
+    """Return average points scored and allowed for each team."""
+    totals = defaultdict(lambda: {'scored': 0, 'allowed': 0, 'games': 0})
+    for g in games:
+        totals[g['home_team']]['scored'] += g['home_points']
+        totals[g['home_team']]['allowed'] += g['away_points']
+        totals[g['home_team']]['games'] += 1
+
+        totals[g['away_team']]['scored'] += g['away_points']
+        totals[g['away_team']]['allowed'] += g['home_points']
+        totals[g['away_team']]['games'] += 1
+
+    avgs = {}
+    for team, vals in totals.items():
+        games_played = vals['games']
+        avgs[team] = {
+            'scored': vals['scored'] / games_played,
+            'allowed': vals['allowed'] / games_played,
+        }
+    return avgs
+
+
+def predict_final_score(home_team, away_team, avgs):
+    """Predict final score using team offensive and defensive averages."""
+    h = avgs.get(home_team, {'scored': 0, 'allowed': 0})
+    a = avgs.get(away_team, {'scored': 0, 'allowed': 0})
+    home_score = (h['scored'] + a['allowed']) / 2
+    away_score = (a['scored'] + h['allowed']) / 2
+    return round(home_score), round(away_score)
+
+
 def predict_with_reasoning(home_team, away_team, ratings, k=0.1):
     """Return win probability plus explanation of the calculation."""
     rating_home = ratings.get(home_team, 0)
@@ -59,9 +90,14 @@ def main():
 
     games = load_games(args.data)
     ratings = compute_team_ratings(games)
+    avgs = compute_team_point_avgs(games)
+
     prob, reason = predict_with_reasoning(args.home_team, args.away_team, ratings)
+    home_score, away_score = predict_final_score(args.home_team, args.away_team, avgs)
+
     print(reason)
     print(f"Predicted probability {args.home_team} beats {args.away_team}: {prob:.3f}")
+    print(f"Predicted final score: {args.home_team} {home_score} - {args.away_team} {away_score}")
 
 
 if __name__ == '__main__':
