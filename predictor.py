@@ -106,7 +106,9 @@ def compute_team_point_avgs(
         avgs[team] = {
             "scored": vals["scored"] / w,
             "allowed": vals["allowed"] / w,
-=======
+        }
+    return avgs
+
 def compute_team_point_avgs(games):
     """Return average points scored and allowed for each team."""
     totals = defaultdict(lambda: {'scored': 0, 'allowed': 0, 'games': 0})
@@ -141,14 +143,6 @@ def compute_team_players(player_stats):
     return {team: sorted(p_list) for team, p_list in players.items()}
 
 
-def predict_final_score(home_team, away_team, avgs, home_advantage=HOME_ADVANTAGE):
-=======
-def predict_final_score(home_team, away_team, avgs, home_advantage=HOME_ADVANTAGE):
-    """Predict final score using team offensive and defensive averages."""
-    h = avgs.get(home_team, {'scored': 0, 'allowed': 0})
-    a = avgs.get(away_team, {'scored': 0, 'allowed': 0})
-    home_score = (h['scored'] + a['allowed']) / 2 + home_advantage
-
 def predict_final_score(home_team, away_team, avgs):
     """Predict final score using team offensive and defensive averages."""
     h = avgs.get(home_team, {'scored': 0, 'allowed': 0})
@@ -158,19 +152,6 @@ def predict_final_score(home_team, away_team, avgs):
     away_score = (a['scored'] + h['allowed']) / 2
     return round(home_score), round(away_score)
 
-def predict_with_reasoning(home_team, away_team, ratings, k=0.1, home_weight=HOME_WEIGHT):
-
-    """Predict final score using team offensive and defensive averages."""
-    h = avgs.get(home_team, {'scored': 0, 'allowed': 0})
-    a = avgs.get(away_team, {'scored': 0, 'allowed': 0})
-    home_score = (h['scored'] + a['allowed']) / 2 + home_advantage
-    away_score = (a['scored'] + h['allowed']) / 2
-    return round(home_score), round(away_score)
-
-
-
-def predict_with_reasoning(home_team, away_team, ratings, k=0.1, home_weight=HOME_WEIGHT):
-=======
 def predict_with_reasoning(home_team, away_team, ratings, k=0.1):
 
 
@@ -201,7 +182,7 @@ def main():
     avgs = compute_team_point_avgs(games, trade_date=TRADE_DEADLINE)
     player_stats = load_player_stats(args.stats)
     team_players = compute_team_players(player_stats)
-=======
+
     ratings = compute_team_ratings(games)
     avgs = compute_team_point_avgs(games)
 
@@ -217,7 +198,7 @@ def main():
     a_players = ", ".join(team_players.get(args.away_team, []))
     print(f"Players {args.home_team}: {h_players}")
     print(f"Players {args.away_team}: {a_players}")
-=======
+
 
 
 

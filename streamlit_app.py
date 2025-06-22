@@ -7,7 +7,7 @@ from predictor import (
     compute_team_point_avgs,
 
     compute_team_players,
-=======
+
 
     predict_final_score,
 )
@@ -27,9 +27,11 @@ def logistic(x, k=0.1):
 def get_games_and_ratings():
     games = load_games(GAMES_PATH)
 
-    ratings = compute_team_ratings(games, trade_date=None)
-    avgs = compute_team_point_avgs(games, trade_date=None)
-=======
+    # ❌ Remove or comment this
+    # ratings = compute_team_ratings(games, trade_date=None)
+    # avgs = compute_team_point_avgs(games, trade_date=None)
+
+    # ✅ Use this version instead
     ratings = compute_team_ratings(games)
     avgs = compute_team_point_avgs(games)
 
@@ -54,7 +56,7 @@ if mode == 'Game Outcome':
     games, ratings, team_avgs = get_games_and_ratings()
 
     _, _, team_players = get_player_stats()
-=======
+
 
     teams = sorted(ALL_TEAMS)
 
@@ -86,7 +88,7 @@ if mode == 'Game Outcome':
 
                 f"<p style='color:black;'>Players {home_team}: {home_players}</p>"
                 f"<p style='color:black;'>Players {away_team}: {away_players}</p>"
-=======
+
 
                 f"</div>",
                 unsafe_allow_html=True,

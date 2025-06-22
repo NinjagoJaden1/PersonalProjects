@@ -5,7 +5,7 @@ from predictor import (
     compute_team_point_avgs,
 
     compute_team_players,
-=======
+
 
     predict_with_reasoning,
     predict_final_score,
@@ -34,7 +34,7 @@ def interactive_mode(games_path, stats_path):
 
         ratings = compute_team_ratings(games, trade_date=None)
         avgs = compute_team_point_avgs(games, trade_date=None)
-=======
+
         ratings = compute_team_ratings(games)
         avgs = compute_team_point_avgs(games)
 
@@ -46,7 +46,7 @@ def interactive_mode(games_path, stats_path):
 
         print(f"Players {home}: {', '.join(team_players.get(home, []))}")
         print(f"Players {away}: {', '.join(team_players.get(away, []))}")
-=======
+
 
     elif choice == '2':
         print("Available players: " + ", ".join(players))
