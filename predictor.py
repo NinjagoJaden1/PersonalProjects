@@ -3,6 +3,10 @@ import math
 import argparse
 from collections import defaultdict
 
+# Extra emphasis for the home team
+HOME_WEIGHT = 1.1  # multiplier applied to the home team's rating
+HOME_ADVANTAGE = 3  # points added to predicted home score
+
 
 def load_games(path):
     """Load games from a CSV path."""
@@ -59,24 +63,34 @@ def compute_team_point_avgs(games):
     return avgs
 
 
+def predict_final_score(home_team, away_team, avgs, home_advantage=HOME_ADVANTAGE):
+    """Predict final score using team offensive and defensive averages."""
+    h = avgs.get(home_team, {'scored': 0, 'allowed': 0})
+    a = avgs.get(away_team, {'scored': 0, 'allowed': 0})
+    home_score = (h['scored'] + a['allowed']) / 2 + home_advantage
+=======
 def predict_final_score(home_team, away_team, avgs):
     """Predict final score using team offensive and defensive averages."""
     h = avgs.get(home_team, {'scored': 0, 'allowed': 0})
     a = avgs.get(away_team, {'scored': 0, 'allowed': 0})
     home_score = (h['scored'] + a['allowed']) / 2
+
     away_score = (a['scored'] + h['allowed']) / 2
     return round(home_score), round(away_score)
 
-
+def predict_with_reasoning(home_team, away_team, ratings, k=0.1, home_weight=HOME_WEIGHT):
+=======
 def predict_with_reasoning(home_team, away_team, ratings, k=0.1):
+
     """Return win probability plus explanation of the calculation."""
-    rating_home = ratings.get(home_team, 0)
+    raw_home = ratings.get(home_team, 0)
+    rating_home = raw_home * home_weight
     rating_away = ratings.get(away_team, 0)
     diff = rating_home - rating_away
     prob_home = 1 / (1 + math.exp(-k * diff))
     reasoning = (
-        f"Home rating {rating_home:.2f}, Away rating {rating_away:.2f}, "
-        f"diff {diff:.2f} -> prob {prob_home:.3f}"
+        f"Home rating {raw_home:.2f} x{home_weight:.2f}, "
+        f"Away rating {rating_away:.2f}, diff {diff:.2f} -> prob {prob_home:.3f}"
     )
     return prob_home, reasoning
 
