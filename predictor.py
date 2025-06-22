@@ -68,7 +68,7 @@ def predict_final_score(home_team, away_team, avgs, home_advantage=HOME_ADVANTAG
     h = avgs.get(home_team, {'scored': 0, 'allowed': 0})
     a = avgs.get(away_team, {'scored': 0, 'allowed': 0})
     home_score = (h['scored'] + a['allowed']) / 2 + home_advantage
-=======
+
 def predict_final_score(home_team, away_team, avgs):
     """Predict final score using team offensive and defensive averages."""
     h = avgs.get(home_team, {'scored': 0, 'allowed': 0})
@@ -79,7 +79,13 @@ def predict_final_score(home_team, away_team, avgs):
     return round(home_score), round(away_score)
 
 def predict_with_reasoning(home_team, away_team, ratings, k=0.1, home_weight=HOME_WEIGHT):
-=======
+    """Predict final score using team offensive and defensive averages."""
+    h = avgs.get(home_team, {'scored': 0, 'allowed': 0})
+    a = avgs.get(away_team, {'scored': 0, 'allowed': 0})
+    home_score = (h['scored'] + a['allowed']) / 2 + home_advantage
+    away_score = (a['scored'] + h['allowed']) / 2
+    return round(home_score), round(away_score)
+
 def predict_with_reasoning(home_team, away_team, ratings, k=0.1):
 
     """Return win probability plus explanation of the calculation."""
