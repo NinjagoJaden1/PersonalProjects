@@ -5,7 +5,10 @@ from predictor import (
     load_games,
     compute_team_ratings,
     compute_team_point_avgs,
+
     compute_team_players,
+=======
+
     predict_final_score,
 )
 from player_predictor import load_player_stats, compute_averages
@@ -23,8 +26,13 @@ def logistic(x, k=0.1):
 @st.cache_data
 def get_games_and_ratings():
     games = load_games(GAMES_PATH)
+
     ratings = compute_team_ratings(games, trade_date=None)
     avgs = compute_team_point_avgs(games, trade_date=None)
+=======
+    ratings = compute_team_ratings(games)
+    avgs = compute_team_point_avgs(games)
+
     return games, ratings, avgs
 
 @st.cache_data
@@ -44,7 +52,10 @@ mode = st.selectbox('Prediction Type', ['Game Outcome', 'Player Averages'])
 # === GAME OUTCOME ===
 if mode == 'Game Outcome':
     games, ratings, team_avgs = get_games_and_ratings()
+
     _, _, team_players = get_player_stats()
+=======
+
     teams = sorted(ALL_TEAMS)
 
     home_team = st.selectbox('🏠 Home Team', teams)
@@ -72,8 +83,11 @@ if mode == 'Game Outcome':
                 f"<p style='color:black;'>{explanation}</p>"
                 f"<p style='color:black;'>Win probability for {home_team}: {prob:.1%}</p>"
                 f"<p style='color:black;'>Predicted score: {home_team} {home_score} - {away_team} {away_score}</p>"
+
                 f"<p style='color:black;'>Players {home_team}: {home_players}</p>"
                 f"<p style='color:black;'>Players {away_team}: {away_players}</p>"
+=======
+
                 f"</div>",
                 unsafe_allow_html=True,
             )
