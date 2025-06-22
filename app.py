@@ -3,6 +3,10 @@ from predictor import (
     load_games,
     compute_team_ratings,
     compute_team_point_avgs,
+
+    compute_team_players,
+=======
+
     predict_with_reasoning,
     predict_final_score,
 )
@@ -16,6 +20,7 @@ DEFAULT_STATS_PATH = 'data/sample_player_stats.csv'
 def interactive_mode(games_path, stats_path):
     games = load_games(games_path)
     player_stats = load_player_stats(stats_path)
+    team_players = compute_team_players(player_stats)
 
     teams = sorted(ALL_TEAMS)
     players = sorted({s['player'] for s in player_stats})
@@ -26,13 +31,23 @@ def interactive_mode(games_path, stats_path):
         print("Available teams: " + ", ".join(teams))
         home = input("Home team: ")
         away = input("Away team: ")
+
+        ratings = compute_team_ratings(games, trade_date=None)
+        avgs = compute_team_point_avgs(games, trade_date=None)
+=======
         ratings = compute_team_ratings(games)
         avgs = compute_team_point_avgs(games)
+
         prob, reason = predict_with_reasoning(home, away, ratings)
         home_score, away_score = predict_final_score(home, away, avgs)
         print(reason)
         print(f"Predicted probability {home} beats {away}: {prob:.3f}")
         print(f"Predicted final score: {home} {home_score} - {away} {away_score}")
+
+        print(f"Players {home}: {', '.join(team_players.get(home, []))}")
+        print(f"Players {away}: {', '.join(team_players.get(away, []))}")
+=======
+
     elif choice == '2':
         print("Available players: " + ", ".join(players))
         player = input("Player name: ")
