@@ -7,23 +7,22 @@ import pandas as pd
 from tqdm import tqdm
 
 DATA_DIR = "data"
-GAMES_PATH = os.path.join(DATA_DIR, "sample_games.csv")
+GAMES_PATH = os.path.join(DATA_DIR, "recent_games.csv")
 STATS_PATH = os.path.join(DATA_DIR, "recent_player_stats.csv")
 API_KEY = "9df1a841-76f7-4aab-93f4-ef92a6b0abc1"
 HEADERS = {"Authorization": API_KEY}
 GAMES_URL = "https://api.balldontlie.io/v1/games"
 STATS_URL = "https://api.balldontlie.io/v1/stats"
 
-
 # === Fetch Games in Backward Chunks ===
 def fetch_recent_games(limit: int = 500) -> list:
     games = []
-    end = datetime.today()
+    end = datetime.today()  # ⬅️ Start fetching games FROM this date and go backward
 
     print(f"📅 Fetching the most recent {limit} games...")
 
     while len(games) < limit:
-        chunk_start = end - relativedelta(months=3)  # <-- 3-month chunk
+        chunk_start = end - relativedelta(months=3)  # ⬅️ 3-month fetch window
         s = chunk_start.strftime("%Y-%m-%d")
         e = end.strftime("%Y-%m-%d")
         print(f"🗓️  Chunk: {s} → {e}")
@@ -44,7 +43,6 @@ def fetch_recent_games(limit: int = 500) -> list:
                 return games
 
             data = resp.json()
-
             if not data["data"]:
                 print(f"⚠️ No games found between {s} and {e}.")
                 break
@@ -73,14 +71,10 @@ def fetch_recent_games(limit: int = 500) -> list:
             if not cursor:
                 break
 
-        end = chunk_start  # move the 3-month window backward
+        end = chunk_start  # move window backward
 
     print(f"✅ Finished. Total games collected: {len(games)}")
     return games[:limit]
-
-
-
-
 
 
 # === Fetch Player Stats for One Game ===
@@ -164,7 +158,7 @@ def main():
 
     save_to_csv(GAMES_PATH, games)
 
-    # If you want to re-enable player stats later:
+    # Optional: Enable this if you want player stats too
     # stats = collect_player_stats(games)
     # save_to_csv(STATS_PATH, stats)
 
