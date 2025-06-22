@@ -1,6 +1,13 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
-from predictor import load_games, compute_team_ratings, predict_with_reasoning
+from predictor import (
+    load_games,
+    compute_team_ratings,
+    compute_team_point_avgs,
+    compute_team_players,
+    predict_with_reasoning,
+    predict_final_score,
+)
 from player_predictor import load_player_stats, compute_averages, predict_player
 from teams import ALL_TEAMS
 
@@ -12,17 +19,28 @@ def load_data():
     games = load_games(GAMES_PATH)
     player_stats = load_player_stats(STATS_PATH)
     player_set = {s['player'] for s in player_stats}
-    ratings = compute_team_ratings(games)
+    ratings = compute_team_ratings(games, trade_date=None)
+    team_avgs = compute_team_point_avgs(games, trade_date=None)
+    team_players = compute_team_players(player_stats)
     player_avgs = compute_averages(player_stats)
-    return sorted(ALL_TEAMS), sorted(player_set), ratings, player_avgs
+    return (
+        sorted(ALL_TEAMS),
+        sorted(player_set),
+        ratings,
+        team_avgs,
+        team_players,
+        player_avgs,
+    )
 
 
 class BettingApp(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title('NBA Betting Helper')
-        teams, players, ratings, player_avgs = load_data()
+        teams, players, ratings, team_avgs, team_players, player_avgs = load_data()
         self.ratings = ratings
+        self.team_avgs = team_avgs
+        self.team_players = team_players
         self.player_avgs = player_avgs
 
         self.notebook = ttk.Notebook(self)
@@ -63,7 +81,16 @@ class BettingApp(tk.Tk):
             messagebox.showerror('Error', 'Teams must be different')
             return
         prob, reason = predict_with_reasoning(home, away, self.ratings)
-        self.game_result.config(text=f"{reason}\nProbability {home} beats {away}: {prob:.3f}")
+        home_score, away_score = predict_final_score(home, away, self.team_avgs)
+        home_players = ", ".join(self.team_players.get(home, []))
+        away_players = ", ".join(self.team_players.get(away, []))
+        self.game_result.config(
+            text=(
+                f"{reason}\nProbability {home} beats {away}: {prob:.3f}\n"
+                f"Predicted score: {home} {home_score} - {away} {away_score}\n"
+                f"Players {home}: {home_players}\nPlayers {away}: {away_players}"
+            )
+        )
 
     def predict_player_stats(self):
         player = self.player_var.get()
