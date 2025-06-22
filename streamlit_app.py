@@ -1,7 +1,12 @@
 import math
 import streamlit as st
 import pandas as pd
-from predictor import load_games, compute_team_ratings
+from predictor import (
+    load_games,
+    compute_team_ratings,
+    compute_team_point_avgs,
+    predict_final_score,
+)
 from player_predictor import load_player_stats, compute_averages
 from teams import ALL_TEAMS
 
@@ -18,7 +23,8 @@ def logistic(x, k=0.1):
 def get_games_and_ratings():
     games = load_games(GAMES_PATH)
     ratings = compute_team_ratings(games)
-    return games, ratings
+    avgs = compute_team_point_avgs(games)
+    return games, ratings, avgs
 
 @st.cache_data
 def get_player_stats():
@@ -35,7 +41,7 @@ mode = st.selectbox('Prediction Type', ['Game Outcome', 'Player Averages'])
 
 # === GAME OUTCOME ===
 if mode == 'Game Outcome':
-    games, ratings = get_games_and_ratings()
+    games, ratings, team_avgs = get_games_and_ratings()
     teams = sorted(ALL_TEAMS)
 
     home_team = st.selectbox('🏠 Home Team', teams)
@@ -47,6 +53,7 @@ if mode == 'Game Outcome':
         else:
             diff = ratings.get(home_team, 0) - ratings.get(away_team, 0)
             prob = logistic(diff)
+            home_score, away_score = predict_final_score(home_team, away_team, team_avgs)
             winner = home_team if prob >= 0.5 else away_team
             explanation = (
                 f"{winner} are predicted to win because their rating is higher "
@@ -59,6 +66,7 @@ if mode == 'Game Outcome':
                 f"<h2 style='color:black;'>{winner} 🏆</h2>"
                 f"<p style='color:black;'>{explanation}</p>"
                 f"<p style='color:black;'>Win probability for {home_team}: {prob:.1%}</p>"
+                f"<p style='color:black;'>Predicted score: {home_team} {home_score} - {away_team} {away_score}</p>"
                 f"</div>",
                 unsafe_allow_html=True,
             )
